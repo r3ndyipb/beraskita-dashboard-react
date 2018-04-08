@@ -24,6 +24,7 @@ export default class Dashboard extends Component {
     render(){
         const base64 = require('base-64');
 
+        //stokberasimport, konsumsi, perbandingan
         Api
         .get(this.state.serverDashboard + '/user-stocks/total-stock?firstDate=01/04/2018 10:10:10&lastDate=10/4/2018 10:10:10')
         .set('Authorization', 'Basic ' + base64.encode("username:password"))
@@ -31,6 +32,51 @@ export default class Dashboard extends Component {
         .then(function(res) {
             document.getElementById("sbin").innerHTML = JSON.stringify(res.body.total_stock) + " Ton";
             document.getElementById("kbin").innerHTML = JSON.stringify(res.body.total_consumption) + " Ton";
+        });
+
+        //chart perbandingan
+        Api
+        .get(this.state.serverDashboard + '/user-stocks/graph?firstDate=01/04/2018 10:10:10&lastDate=03/4/2018 10:10:10&productId=1&stockTypeId=2')
+        .set('Authorization', 'Basic ' + base64.encode("username:password"))
+        .set('Accept', 'application/json')
+        .then(function(res) {
+            //value
+        });
+
+        //rank toko
+        Api
+        .get(this.state.serverDashboard + '/user-stocks/rank?firstDate=01/04/2018 10:10:10&lastDate=10/4/2018 10:10:10&productId=1&stockTypeId=2&sort=max')
+        .set('Authorization', 'Basic ' + base64.encode("username:password"))
+        .set('Accept', 'application/json')
+        .then(function(res) {
+            //value
+        });
+
+        //rank daerah
+        Api
+        .get(this.state.serverDashboard + '/user-stocks/rank-by-area?firstDate=01/04/2018 10:10:10&lastDate=10/4/2018 10:10:10&productId=1&stockTypeId=2&sort=max')
+        .set('Authorization', 'Basic ' + base64.encode("username:password"))
+        .set('Accept', 'application/json')
+        .then(function(res) {
+            //value
+        });
+
+        //list produk
+        Api
+        .get(this.state.serverDashboard + '/products/list')
+        .set('Authorization', 'Basic ' + base64.encode("username:password"))
+        .set('Accept', 'application/json')
+        .then(function(res) {
+            //value
+        });
+
+        //list stok
+        Api
+        .get(this.state.serverDashboard + 'stock-types/list')
+        .set('Authorization', 'Basic ' + base64.encode("username:password"))
+        .set('Accept', 'application/json')
+        .then(function(res) {
+            //value
         });
 
         var chartData = {
