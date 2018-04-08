@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route, Router, hashHistory} from 'react-router';
+import {Link, Route, Router} from 'react-router';
 //import Api from 'superagent';
 
 import logo from '../image/logo.png';
@@ -58,7 +58,6 @@ export default class Login extends Component {
 
                     <div className="text-center" style={{paddingTop:30}}>
                     <a href="">Lupas Password?</a><br />
-                    <button onClick={() => hashHistory.push('/dashboard')}></button>
                     Belum punya ID? <a href="register.html" className="text-center">Daftar</a>
                     </div>
 
