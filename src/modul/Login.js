@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route, Router} from 'react-router';
+import {Link, Route, Router, IndexRoute, hasHistory} from 'react-router';
 //import Api from 'superagent';
 
 import logo from '../image/logo.png';
@@ -30,7 +30,7 @@ export default class Login extends Component {
         });
 */        
         return (
-            <div class="login-box">
+            <div className="login-box">
 
                 <div className="login-box-body">
                     <p className="login-box-msg"></p>
